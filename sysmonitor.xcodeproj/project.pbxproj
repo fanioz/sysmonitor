@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E7FE749F2FC91E96003DD995 /* EARS.md in Resources */ = {isa = PBXBuildFile; fileRef = E7FE749E2FC91E8C003DD995 /* EARS.md */; };
+		E7FE74A12FC91F91003DD995 /* TASKS.md in Resources */ = {isa = PBXBuildFile; fileRef = E7FE74A02FC91F91003DD995 /* TASKS.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		E7FE74822FC91E33003DD995 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		E7FE74742FC91E32003DD995 /* sysmonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sysmonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7FE74812FC91E33003DD995 /* sysmonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sysmonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7FE748B2FC91E33003DD995 /* sysmonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sysmonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7FE749E2FC91E8C003DD995 /* EARS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = EARS.md; sourceTree = "<group>"; };
+		E7FE74A02FC91F91003DD995 /* TASKS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TASKS.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,10 +82,12 @@
 		E7FE746B2FC91E32003DD995 = {
 			isa = PBXGroup;
 			children = (
+				E7FE749E2FC91E8C003DD995 /* EARS.md */,
 				E7FE74762FC91E32003DD995 /* sysmonitor */,
 				E7FE74842FC91E33003DD995 /* sysmonitorTests */,
 				E7FE748E2FC91E33003DD995 /* sysmonitorUITests */,
 				E7FE74752FC91E32003DD995 /* Products */,
+				E7FE74A02FC91F91003DD995 /* TASKS.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FE74A12FC91F91003DD995 /* TASKS.md in Resources */,
+				E7FE749F2FC91E96003DD995 /* EARS.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,7 +333,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -379,7 +390,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -399,6 +410,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sysmonitor/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -429,6 +441,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = sysmonitor/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,7 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fanioz.sysmonitorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -474,7 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 26.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fanioz.sysmonitorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
