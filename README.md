@@ -1,5 +1,7 @@
 # SysMonitor _(sysmonitor)_
 
+![SysMonitor Screenshot](assets/SysMonitor.png)
+
 A native macOS system resource widget with menu bar integration and a beautiful glassmorphic UI.
 
 SysMonitor provides an elegant, unobtrusive way to track critical macOS system metrics. It combines a persistent menu bar item for glanceable CPU and RAM usage with a highly detailed, translucent widget window for per-core stats, disk I/O, network throughput, and memory breakdown.
