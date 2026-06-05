@@ -83,12 +83,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             // REQ-065: Start in menu-bar-only mode when launched at login.
             // Do not show the widget window.
         } else if isFirstLaunch {
-            // REQ-003: First launch — show the main widget window.
+            // REQ-003: First launch — wait a split second for menu bar layout, then show.
             UserDefaults.standard.set(true, forKey: hasLaunchedBeforeKey)
-            showWidgetWindow()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                self?.showWidgetWindow()
+            }
         } else {
-            // Subsequent manual launches — show the widget window.
-            showWidgetWindow()
+            // Subsequent manual launches — do not show the widget window initially to be unobtrusive.
         }
     }
 
@@ -236,7 +237,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         window.contentView = visualEffect
 
         window.title = "SysMonitor"
-        window.center()
+        // window.center() // Removed because we manually position it below the menu bar.
         window.isReleasedWhenClosed = false
         window.delegate = self
 
@@ -249,6 +250,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private func showWidgetWindow() {
         createWidgetWindowIfNeeded()
         guard let window = widgetWindow else { return }
+
+        // Position window below the status item button
+        if let button = statusItem?.button, let _ = button.window?.screen {
+            let buttonFrameInWindow = button.convert(button.bounds, to: nil)
+            let buttonFrameInScreen = button.window!.convertToScreen(buttonFrameInWindow)
+            
+            let windowWidth = window.frame.width
+            let windowHeight = window.frame.height
+            
+            // X: Center of button - half window width
+            let xPos = buttonFrameInScreen.midX - (windowWidth / 2)
+            // Y: Bottom of button - a small margin (e.g., 5 points)
+            let yPos = buttonFrameInScreen.minY - windowHeight - 5
+            
+            window.setFrame(NSRect(x: xPos, y: yPos, width: windowWidth, height: windowHeight), display: true)
+        }
 
         // Animate fade-in.
         window.alphaValue = 0
@@ -382,5 +399,12 @@ extension AppDelegate: NSWindowDelegate {
         // The window's isReleasedWhenClosed = false, so it's just hidden.
         // Switch to the hidden polling interval.
         startPollingTimer()
+    }
+    
+    /// Hide the widget window automatically when the user clicks elsewhere.
+    func windowDidResignKey(_ notification: Notification) {
+        if let window = widgetWindow, window.isVisible {
+            hideWidgetWindow()
+        }
     }
 }
